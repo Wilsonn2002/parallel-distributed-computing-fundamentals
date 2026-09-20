@@ -4,7 +4,6 @@
  Autor          : Wilson Alexander Silva Nova
  Descripción    : Programa que genera una matriz cuadrada con numeros
                   aleatorios y compara las sumas de sus diagonales.
-Fecha           : 13/09/2026
  ============================================================================
 */
 
