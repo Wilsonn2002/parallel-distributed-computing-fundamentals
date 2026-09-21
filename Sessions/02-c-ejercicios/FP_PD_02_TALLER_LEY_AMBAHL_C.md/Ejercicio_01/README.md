@@ -54,7 +54,7 @@ Por lo tanto, el equipo utilizado presenta las siguientes características:
 La siguiente captura muestra el resultado obtenido directamente desde
 Windows PowerShell:
 
-![Evidencia de identificación del procesador](Evidencia_Powershell.docx)
+![Evidencia de identificación del procesador](evidencia_ejercicio_01_cpu.png)
 
 ---
 

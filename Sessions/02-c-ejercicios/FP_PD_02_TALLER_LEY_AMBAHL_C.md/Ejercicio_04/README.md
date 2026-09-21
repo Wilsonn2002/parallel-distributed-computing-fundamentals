@@ -170,7 +170,7 @@ procesadores, el speedup máximo teórico sería aproximadamente:
 
 La siguiente captura muestra los cálculos realizados en PowerShell:
 
-![Evidencia del cálculo teórico](Evidencia_Powershell4.docx)
+![Evidencia del cálculo teórico](evidencia_ejercicio_04_sppedup_teorico.png)
 
 ---
 

@@ -184,8 +184,8 @@ e invariable del programa.
 La siguiente captura muestra el procedimiento utilizado para calcular la
 fracción paralelizable:
 
-![Evidencia del cálculo de la fracción paralelizable](Evidencia_Powershell3.docx)
-
+![Evidencia del cálculo de la fracción paralelizable](evidencia_ejercicio_03_calculo.png)
+cls
 ---
 
 ## Conclusión

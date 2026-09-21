@@ -98,7 +98,7 @@ Los resultados experimentales obtenidos fueron:
 La siguiente captura muestra las diferentes ejecuciones realizadas en
 PowerShell:
 
-![Evidencia de comparación experimental](Evidencia_Powershell5.docx)
+![Evidencia de comparación experimental](Evidencia_ejercicio_05_comparacion.png)
 
 ---
 

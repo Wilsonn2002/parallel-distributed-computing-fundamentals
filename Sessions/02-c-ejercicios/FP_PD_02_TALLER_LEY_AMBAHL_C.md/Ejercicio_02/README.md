@@ -115,7 +115,7 @@ Tp = 0.005 s
 La siguiente captura muestra la compilación y ejecución de las versiones
 secuencial y paralela del programa:
 
-![Evidencia de ejecución secuencial y paralela](Evidencia_Powershell2.docx)
+![Evidencia de ejecución secuencial y paralela](evidencia_ejercicio_02_speedup.png)
 
 ---
 
