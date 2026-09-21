@@ -72,3 +72,4 @@ output/
 *.ppm
 *.pgm
 *.pbm
+*.exe

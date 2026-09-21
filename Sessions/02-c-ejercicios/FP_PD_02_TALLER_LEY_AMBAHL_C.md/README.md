@@ -9,167 +9,137 @@
 
 ---
 
-# Introducción
+## Descripción
 
-El presente taller tiene como finalidad reforzar conceptos relacionados con
-programación paralela, validación de recursos de hardware y aplicación de la
-Ley de Amdahl.
+Este repositorio contiene el desarrollo del taller relacionado con la
+**Ley de Amdahl y la validación de recursos de hardware**.
 
-A lo largo del desarrollo se realizarán diferentes pruebas utilizando los
-recursos disponibles en el computador, con el propósito de identificar las
-características del procesador, ejecutar programas secuenciales y paralelos,
-medir sus tiempos de ejecución y posteriormente analizar el rendimiento
-obtenido al utilizar diferentes cantidades de hilos.
+El objetivo del taller es analizar el comportamiento de aplicaciones
+secuenciales y paralelas mediante la identificación de los recursos
+disponibles en el procesador, la medición de tiempos de ejecución y el
+cálculo del speedup obtenido al utilizar diferentes cantidades de hilos.
 
-Los resultados presentados corresponden a ejecuciones realizadas directamente
-en el equipo utilizado para desarrollar el taller.
+Para las pruebas prácticas se utilizan programas escritos en lenguaje C
+y paralelización mediante OpenMP.
 
 ---
 
-# Ejercicio 1. Identificación de Cores y Procesadores Lógicos
+## Contenido del taller
 
-## Objetivo
+El taller se encuentra dividido en cinco ejercicios:
 
-Identificar la cantidad de núcleos físicos y procesadores lógicos disponibles
-en la CPU del computador y comprender la diferencia entre ambos recursos.
+### Ejercicio 1
+**Identificación de Cores y Procesadores Lógicos**
 
-El taller solicita consultar esta información mediante PowerShell para
-determinar los valores correspondientes a `NumberOfCores` y
-`NumberOfLogicalProcessors`.
+Se identifican los núcleos físicos y los procesadores lógicos disponibles
+en el equipo utilizado para realizar las pruebas.
+
+### Ejercicio 2
+**Cálculo de Speedup Experimental**
+
+Se comparan los tiempos de ejecución de una versión secuencial y una
+versión paralela de un programa de búsqueda de números primos.
+
+### Ejercicio 3
+**Estimación de la Fracción Paralelizable**
+
+Se utiliza la Ley de Amdahl para estimar qué porcentaje del programa
+puede ejecutarse de manera paralela.
+
+### Ejercicio 4
+**Predicción Teórica del Speedup**
+
+Se calcula el speedup teórico para diferentes cantidades de hilos
+utilizando una fracción paralelizable determinada.
+
+### Ejercicio 5
+**Comparación Práctica vs. Teórica**
+
+Se comparan los resultados experimentales obtenidos en la ejecución
+del programa con los valores teóricos predichos mediante la Ley de Amdahl.
 
 ---
 
-## Comando utilizado
-
-Para consultar las características del procesador se ejecutó el siguiente
-comando en Windows PowerShell:
-
-```powershell
-Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors
-```
-
----
-
-## Resultado obtenido
-
-La ejecución del comando produjo el siguiente resultado:
+## Estructura del repositorio
 
 ```text
-Name                                      NumberOfCores NumberOfLogicalProcessors
-----                                      ------------- -------------------------
-Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz      4                  8
+FP_PD_02_TALLER_LEY_AMDAHL_Cmd/
+│
+├── README.md
+│
+├── Ejercicio_01/
+│   ├── README.md
+│   └── evidencia_cpu.png
+│
+├── Ejercicio_02/
+│   └── README.md
+│
+├── Ejercicio_03/
+│   └── README.md
+│
+├── Ejercicio_04/
+│   └── README.md
+│
+├── Ejercicio_05/
+│   └── README.md
+│
+├── primes_number_parallel.c
+└── primes_number_sequential.c
 ```
 
-Por lo tanto, las características encontradas en el equipo son:
+---
 
-- **Procesador:** Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz
-- **Número de núcleos físicos:** 4
-- **Número de procesadores lógicos:** 8
+## Código fuente utilizado
+
+Los programas utilizados para realizar las pruebas se encuentran
+desarrollados en lenguaje C.
+
+### Programa secuencial
+
+`primes_number_sequential.c`
+
+Este programa realiza una búsqueda de números primos utilizando una
+ejecución secuencial.
+
+### Programa paralelo
+
+`primes_number_parallel.c`
+
+Este programa utiliza OpenMP para distribuir el ciclo de búsqueda de
+números primos entre múltiples hilos de ejecución.
 
 ---
 
-## Interpretación de los resultados
+## Herramientas utilizadas
 
-El computador utilizado para realizar el taller posee un procesador
-**Intel Core i5-10210U**, el cual dispone de **4 núcleos físicos** y
-**8 procesadores lógicos**.
-
-Los núcleos físicos corresponden a las unidades reales de procesamiento
-presentes dentro del procesador. Cada núcleo tiene la capacidad de ejecutar
-instrucciones y realizar operaciones de procesamiento.
-
-Los procesadores lógicos, por otra parte, representan las unidades de
-ejecución que el sistema operativo puede utilizar para administrar los hilos
-de los programas.
-
-En este caso, el sistema operativo reconoce 8 procesadores lógicos aunque
-el procesador solamente posee 4 núcleos físicos.
-
-Esto significa que cada núcleo físico puede trabajar con dos hilos de
-ejecución.
+- Visual Studio Code
+- GCC
+- OpenMP
+- Windows PowerShell
+- Git
+- GitHub
 
 ---
 
-## Hyper-Threading
+## Entregable final
 
-La diferencia entre la cantidad de núcleos físicos y procesadores lógicos
-se debe a la tecnología de multihilo disponible en el procesador.
+El desarrollo completo del taller será consolidado posteriormente en un
+único archivo PDF que incluirá:
 
-En los procesadores Intel esta tecnología se conoce como
-**Hyper-Threading**.
-
-Hyper-Threading permite que un núcleo físico pueda gestionar más de un hilo
-de ejecución, de manera que el sistema operativo puede aprovechar mejor los
-recursos internos disponibles en cada núcleo.
-
-En este equipo se tiene la siguiente relación:
-
-```text
-4 núcleos físicos
-        ↓
-2 hilos por núcleo
-        ↓
-8 procesadores lógicos
-```
-
-Por esta razón, Windows reconoce un total de 8 procesadores lógicos.
+- Desarrollo y explicación de cada ejercicio.
+- Capturas de pantalla de las ejecuciones.
+- Resultados experimentales.
+- Cálculos realizados.
+- Tablas y gráficas.
+- Comparación entre speedup teórico y experimental.
+- Enlace al repositorio donde se encuentra alojado el código fuente.
 
 ---
 
-## Análisis
+## Nota
 
-La presencia de 8 procesadores lógicos permite que el sistema pueda manejar
-una mayor cantidad de hilos de ejecución de manera concurrente.
+En este repositorio se almacenan únicamente archivos de código fuente,
+documentación y evidencias necesarias para el desarrollo del taller.
 
-Sin embargo, es importante señalar que un procesador lógico no equivale a
-tener un núcleo físico adicional.
-
-Aunque el sistema reconoce 8 unidades lógicas de procesamiento, físicamente
-el procesador sigue teniendo solamente 4 núcleos.
-
-Por esta razón, ejecutar un programa utilizando 8 hilos no significa que su
-rendimiento necesariamente será el doble del obtenido utilizando 4 hilos.
-
-El rendimiento dependerá de diferentes factores, entre ellos:
-
-- La cantidad de código que pueda ejecutarse en paralelo.
-- La cantidad de hilos utilizados.
-- La sobrecarga necesaria para crear y administrar los hilos.
-- El uso de los recursos compartidos del procesador.
-- La capacidad de los núcleos físicos.
-- La eficiencia del programa paralelo.
-
-Esta característica será especialmente importante en los siguientes
-ejercicios, donde se compararán los tiempos de ejecución de un programa
-secuencial con una versión paralela utilizando OpenMP.
-
-También permitirá observar si aumentar progresivamente la cantidad de hilos
-produce una reducción proporcional del tiempo de ejecución.
-
----
-
-## Conclusión del Ejercicio 1
-
-Mediante PowerShell fue posible identificar los recursos de procesamiento
-disponibles en el equipo utilizado para desarrollar el taller.
-
-El procesador **Intel Core i5-10210U** cuenta con **4 núcleos físicos** y
-**8 procesadores lógicos**.
-
-La existencia de un mayor número de procesadores lógicos se relaciona con
-el uso de Hyper-Threading, tecnología que permite que cada núcleo físico
-gestione más de un hilo de ejecución.
-
-No obstante, disponer de 8 procesadores lógicos no equivale a disponer de
-8 núcleos físicos. Por esta razón, el aumento en el número de hilos no
-garantiza un incremento proporcional del rendimiento.
-
-Esta información servirá como referencia para analizar posteriormente el
-comportamiento del programa paralelo y los valores de speedup obtenidos
-mediante la Ley de Amdahl.
-
----
-
-# Ejercicio 2. Cálculo de Speedup Experimental
-
-_Pendiente de desarrollo._
+No se incluyen archivos ejecutables o binarios generados durante la
+compilación.
