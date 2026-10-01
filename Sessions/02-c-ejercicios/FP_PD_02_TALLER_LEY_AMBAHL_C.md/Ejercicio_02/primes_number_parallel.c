@@ -3,7 +3,7 @@
 #include <time.h>
 #include <omp.h>
 
-#define N 50000
+#define N 35000000
 // Function to check if number is prine
 
 int isPrime(int n) {
